@@ -1,0 +1,78 @@
+<div class="container">
+    <div class="row">
+        <div class="col-md-6 box">
+            <form #Form="ngForm">
+                <div class="form-group">
+                    <div class="sunDiv">
+                        <fa-icon class="sun" [icon]="['fas', 'sun']"></fa-icon>
+                    </div>
+                    <div class="cloudDiv">
+                        <fa-icon class="cloud" [icon]="['fas', 'cloud']"></fa-icon>
+                    </div>
+                    <h3 class="text-center my-4">Search For Weather</h3>
+                    <input  type="text" name="City" [(ngModel)]="CityWeatherData" #city="ngModel" class="form-control"
+                        placeholder="Enter your city" required style="height: 40px;">
+                </div>
+                <div [hidden]="city.valid || city.pristine" class="alert alert-danger">
+                    City is required
+                </div>
+            </form>
+            <div class="text-center">
+                <button [disabled]="!Form.form.valid" (click)="getCity(city.value)" style="height: 30px;" type="button">Search &nbsp; <fa-icon [icon]="['fas', 'search']"></fa-icon></button>
+            </div>
+
+        </div>
+
+        <div class="col-md-6 Info" *ngIf="WeatherData">
+            <h3 class="text-center my-4">Weather Information &nbsp;<fa-icon [icon]="['fas', 'info-circle']"></fa-icon></h3>
+            <table class="table table-striped" id="excel-table">
+                <tbody>
+                    <tr>
+                        <td>City:</td>
+                        <td>{{ WeatherData.name}} </td>
+
+                    </tr>
+                    <tr>
+                        <td>Temprature:</td>
+                        <td>{{ (WeatherData.main.temp - 32) * 5/9 | number: '1.0-0' }}°C</td>
+
+                    </tr>
+                    <tr>
+                        <td>Humidity:</td>
+                        <td>{{ WeatherData.main.humidity }}%</td>
+
+                    </tr>
+                    <tr>
+                        <td>Pressure:</td>
+                        <td>{{ WeatherData.main.pressure}} hpa </td>
+
+                    </tr>
+
+
+                    <tr>
+                        <td>Sunrise:</td>
+                        <td>{{ WeatherData.sys.sunrise * 1000 | date:'h:mm a' }} </td>
+
+                    </tr>
+                    <tr>
+                        <td>Sunset:</td>
+                        <td>{{ WeatherData.sys.sunset * 1000 | date:'h:mm a'}} </td>
+
+                    </tr>
+                    <div>
+
+
+                        <button style="font-size: 9px;" (click)="exportexcel()">Export to Excel &nbsp; <fa-icon  [icon]="['fas', 'file-excel']" >
+                            </fa-icon>
+                        </button>
+                    </div>
+                </tbody>
+
+            </table>
+
+
+
+        </div>
+    </div>
+
+</div>

@@ -1,0 +1,67 @@
+.ng-valid[required], .ng-valid.required  {
+    border-left: 5px solid #42A948; 
+  }
+  
+  .ng-invalid:not(form)  {
+    border-left: 5px solid #a94442; 
+  }
+  button{
+    color:black;
+    background-color: gray;
+    margin-top: 10px;
+    box-shadow: 0 5px 10px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
+}
+h3{
+  font-weight: bolder;
+  font-size: large;
+}
+
+.box{
+  display: block;
+  margin-bottom: 20px;
+
+}
+
+.Input{
+  display: block;
+  
+}
+.Info{
+  margin-top: 10px;
+}
+
+.sun {
+  
+  color: yellow;
+  font-size: xxx-large;
+  filter: drop-shadow( 1px 1px 10px yellow);
+  text-align: center;
+}
+.cloudDiv {
+  margin-top: -50px ;
+  text-align: center;
+}
+.cloud {
+  color: rgb(104, 175, 197);
+  filter: drop-shadow(1px 1px 5px rgb(104, 175, 197));
+  font-size: xxx-large;
+  animation-name: cloudMovement;
+  animation-iteration-count: infinite;
+  animation-duration: 10s;
+  animation-timing-function: ease-in-out;
+  animation-direction: alternate;
+}
+.sunDiv {
+  text-align: center;
+  margin-top: 10px;
+  
+}
+
+@keyframes cloudMovement {
+  from{margin-left:  -55px;} to 
+  {margin-left: 65px;}
+}
+
+.icon {
+  font-size: large;
+}
